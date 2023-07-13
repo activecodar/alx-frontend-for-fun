@@ -5,7 +5,7 @@ A script that converts Markdown to HTML.
 
 import sys
 import os
-import re
+
 
 def convert_markdown_to_html(input_file, output_file):
     """
