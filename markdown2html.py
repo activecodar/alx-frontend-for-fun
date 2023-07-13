@@ -11,24 +11,16 @@ def convert_markdown_to_html(input_file, output_file):
     """
     Converts a Markdown file to HTML and writes the output to a file.
     """
-    # Check that the Markdown file exists and is a file
-    if not (os.path.exists(input_file) and os.path.isfile(input_file)):
-        print(f"Missing {input_file}", file=sys.stderr)
-        sys.exit(1)
-
+    pass
 
 if __name__ == "__main__":
-    # Check that the correct number of arguments were provided
-    if len(sys.argv) != 3:
-        print("Usage: ./markdown2html.py README.md README.html", file=sys.stderr)
+    if len(sys.argv) < 3:
+        sys.stderr.write("Usage: ./markdown2html.py <input_file> <output_file>\n")
         sys.exit(1)
-
-    # Get the input and output file names from the command-line arguments
     input_file = sys.argv[1]
     output_file = sys.argv[2]
 
-    # Convert the Markdown file to HTML and write the output to a file
-    convert_markdown_to_html(input_file, output_file)
-
-    # Exit with a successful status code
+    if not os.path.isfile(input_file):
+        sys.stderr.write("Missing {}\n".format(input_file))
+        sys.exit(1)
     sys.exit(0)
